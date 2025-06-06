@@ -1,4 +1,4 @@
-package models;
+package OOP2K2.models;
 
 import java.time.LocalDate;
 
