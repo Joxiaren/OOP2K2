@@ -1,6 +1,6 @@
-package models;
+package OOP2K2.models;
 
-public class Zaposleni {
+public abstract class Zaposleni {
     private String sifraZaposlenog;
     private String ime;
     private String prezime;

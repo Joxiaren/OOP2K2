@@ -1,4 +1,4 @@
-package models;
+package OOP2K2.models;
 
 public class Magacioner extends Zaposleni{
     private int odmori;

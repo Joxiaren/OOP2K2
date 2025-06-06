@@ -1,4 +1,4 @@
-package models;
+package OOP2K2.models;
 
 public class Menadzer extends Zaposleni {
     private Magacin magacin;
