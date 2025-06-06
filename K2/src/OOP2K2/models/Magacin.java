@@ -2,7 +2,7 @@ package OOP2K2.models;
 
 import java.util.ArrayList;
 
-public class Magacin {
+public class Magacin extends Identifiable{
 
     private String nazivMagacina;
     private ArrayList<Roba> robaUMagacinu = new ArrayList<Roba>();

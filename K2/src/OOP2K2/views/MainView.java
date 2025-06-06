@@ -12,6 +12,7 @@ public class MainView extends JFrame {
     public void init(){
         menubar.add(new JMenu("File"));
         menubar.add(new JMenu("Settings"));
+        this.setJMenuBar(this.menubar);
 
         tabbedPane.addTab("Bela Tehnika", new JPanel());
         tabbedPane.addTab("Kvarljiva Roba", new JPanel());
@@ -20,8 +21,6 @@ public class MainView extends JFrame {
         tabbedPane.addTab("Menadzeri", new JPanel());
 
         this.getContentPane().add(tabbedPane);
-
-        this.setJMenuBar(this.menubar);
         this.applySettings();
     }
     public void applySettings(){

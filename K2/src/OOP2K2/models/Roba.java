@@ -2,7 +2,7 @@ package OOP2K2.models;
 
 import java.time.LocalDate;
 
-public class Roba {
+public abstract class Roba extends Identifiable {
     private String naziv;
     private double cena;
     private String opis;
