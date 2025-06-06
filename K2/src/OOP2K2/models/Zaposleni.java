@@ -1,6 +1,6 @@
 package OOP2K2.models;
 
-public abstract class Zaposleni {
+public abstract class Zaposleni  extends Identifiable{
     private String sifraZaposlenog;
     private String ime;
     private String prezime;
