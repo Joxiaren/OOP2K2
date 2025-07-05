@@ -1,11 +1,14 @@
 package OOP2K2.models;
 
-import java.util.ArrayList;
+import OOP2K2.interfaces.Formable;
 
-public class Magacin extends Identifiable{
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Magacin extends Identifiable implements Formable {
 
     private String nazivMagacina;
-    private ArrayList<Roba> robaUMagacinu = new ArrayList<Roba>();
+    private ArrayList<Roba> robaUMagacinu = new ArrayList<>();
 
 
     public Magacin() {
@@ -37,10 +40,38 @@ public class Magacin extends Identifiable{
     public Roba getRoba(int index){
         return this.robaUMagacinu.get(index);
     }
+    public ArrayList<Roba> getAllRoba() {
+        return this.robaUMagacinu;
+    }
     public void removeRoba(int index){
         this.robaUMagacinu.remove(index);
     }
     public void removeRoba(Roba r){
         this.robaUMagacinu.remove(r);
+    }
+
+    @Override
+    public String toString(){
+        return this.getNazivMagacina();
+    }
+    @Override
+    public void copy(Object from){
+        Magacin m = (Magacin)from;
+        this.nazivMagacina = m.nazivMagacina;
+        this.robaUMagacinu = m.robaUMagacinu;
+    }
+    @Override
+    public int numberOfAttributes() {
+        return 2;
+    }
+
+    @Override
+    public ArrayList<String> attributeNames() {
+        return new ArrayList(Arrays.asList("Naziv magacina", "Roba u Magacinu"));
+    }
+
+    @Override
+    public ArrayList<String>  attributeTypes() {
+        return new ArrayList(Arrays.asList("String", "List:Roba"));
     }
 }

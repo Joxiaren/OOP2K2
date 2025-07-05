@@ -1,6 +1,11 @@
 package OOP2K2.models;
 
-public abstract class Zaposleni  extends Identifiable{
+import OOP2K2.interfaces.Formable;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public abstract class Zaposleni extends Identifiable implements Formable {
     private String sifraZaposlenog;
     private String ime;
     private String prezime;
@@ -48,5 +53,29 @@ public abstract class Zaposleni  extends Identifiable{
 
     public void setPlata(double plata) {
         this.plata = plata;
+    }
+
+    @Override
+    public void copy(Object o){
+        Zaposleni z = (Zaposleni)o;
+        this.sifraZaposlenog = z.sifraZaposlenog;
+        this.ime = z.ime;
+        this.prezime = z.prezime;
+        this.plata = z.plata;
+    }
+
+    @Override
+    public int numberOfAttributes() {
+        return 4;
+    }
+
+    @Override
+    public ArrayList<String> attributeNames() {
+        return new ArrayList(Arrays.asList("Sifra zaposlenog", "Ime", "Prezime", "Plata"));
+    }
+
+    @Override
+    public ArrayList<String> attributeTypes() {
+        return new ArrayList(Arrays.asList("String", "String", "String", "Double"));
     }
 }
