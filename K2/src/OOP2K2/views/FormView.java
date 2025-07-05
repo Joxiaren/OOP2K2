@@ -169,5 +169,29 @@ public class FormView<T extends Identifiable & Formable> extends JPanel{
             }
         }
     }
+    public void clear(){
+        JComponent currentInput;
+        for(int j = 0; j < this.numberOfAttributes; j++){
+            currentInput = this.inputs.get(j);
+            switch(this.attributeTypes.get(j)){
+                case "String":
+                    ((JTextField)currentInput).setText("");
+                    break;
+                case "Double":
+                    ((JSpinner)currentInput).setValue(0.0);
+                    break;
+                case "Integer":
+                    ((JSpinner)currentInput).setValue(0);
+                    break;
+                case "LocalDate":
+                    ((JSpinner)currentInput).setValue(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                    break;
+                case "Magacin":
+                    ((JComboBox<Magacin>)currentInput).setSelectedIndex(0);
+                    break;
+            }
+        }
+    }
+
 
 }

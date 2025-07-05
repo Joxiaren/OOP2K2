@@ -18,6 +18,7 @@ public class FormController<T extends Identifiable & Formable> {
     private TableView<T> tableView;
     private PregledRobeView pregledRobeView;
     private Converter<T> converter;
+    private T t;
     private int selectedIndex = -1;
     private T selected = null;
     private Database database;
@@ -32,6 +33,8 @@ public class FormController<T extends Identifiable & Formable> {
         this.formView = formView;
         this.tableView = tableView;
         this.converter = converter;
+        this.t = t;
+
         this.database = database;
 
         this.pregledRobeView = pregledRobeView;
@@ -40,7 +43,10 @@ public class FormController<T extends Identifiable & Formable> {
     public FormView<T> getFormView(){ return formView;}
     public void start(){
         this.formView.addPregledRobeButtonListener((e) ->{
-            if(selected == null) return;
+            if(selected == null) {
+                this.formView.showMessage("Niste odabrali magacin");
+                return;
+            };
 
             this.pregledRobeView.setMagacin((Magacin)selected);
             this.pregledRobeView.init();
@@ -57,7 +63,7 @@ public class FormController<T extends Identifiable & Formable> {
 
             selectedIndex = tableView.getSelectedRow();
             if(selectedIndex == -1 || selectedIndex >= this.modelList.size()){
-                System.out.println("Unselected");
+                this.formView.clear();
                 this.setAddButton();
                 return;
             }
@@ -83,7 +89,7 @@ public class FormController<T extends Identifiable & Formable> {
     }
     public void setDeleteButton(){
         this.formView.addDeleteButtonListener((e) ->{
-            if(this.selected == null) this.formView.showMessage("Nothing is selected");
+            if(this.selected == null) this.formView.showMessage("Nista nije izabrano");
 
             this.delete(this.selected.getID());
             this.tableView.removeUpdate(this.selectedIndex);
