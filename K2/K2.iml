@@ -10,5 +10,7 @@
     <orderEntry type="library" name="flatlaf-3.6" level="project" />
     <orderEntry type="library" name="flatlaf-3.6" level="project" />
     <orderEntry type="library" name="flatlaf-intellij-themes-3.6" level="project" />
+    <orderEntry type="library" name="LGoodDatePicker-11.2.1" level="project" />
+    <orderEntry type="library" name="swing-datetime-picker-2.1.2" level="project" />
   </component>
 </module>
